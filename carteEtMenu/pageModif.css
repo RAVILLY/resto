@@ -1,0 +1,112 @@
+body{
+   width:100%;
+}
+
+caption
+{
+
+   border-collapse: collapse; /* Les bordures du tableau seront collées (plus joli) */
+
+   border: 1px solid black; /* auront une bordure de 1px */
+ 
+   background-color:black; /* Le fond de la page sera noir */
+  
+   text-align:center;
+  
+   color:white;
+}
+table
+
+{
+
+   border-collapse: collapse; /* Les bordures du tableau seront collées (plus joli) */
+
+}
+
+td, th /* Mettre une bordure sur les td et les th */
+
+{
+
+   border: 1px solid black; /* auront une bordure de 1px */
+
+}
+th
+{
+  
+   background-color:yellow; /* Le fond de la page sera noir */
+   text-align: center;
+}
+.choix
+{
+  position:absolute;
+  left:1000px;
+  top:50px;
+  border: 10px blue groove;
+  border-radius: 20px;
+  box-shadow: 20px 20px 20px black;
+}
+.lien
+{
+  position:absolute;
+  left:80px;
+  top:20px;
+  border: 10px blue groove;
+  border-radius: 20px;
+  box-shadow: 20px 20px 20px black;
+   background: url("images/parchemin.jpg");
+}
+
+.entrer
+{
+  position:absolute;
+  left:300px;
+  top:50px;
+  border: 10px blue groove;
+  border-radius: 20px;
+  box-shadow: 20px 20px 20px black;
+}
+
+
+
+
+.icone
+{
+  position:absolute;
+  left:20px;
+  top:50px;
+  border: 10px blue groove;
+  border-radius: 20px;
+  box-shadow: 20px 20px 20px black;
+   background: url("images/parchemin.jpg");
+}
+.icone h3/* Tous les titres de menus */
+{    
+  color:white;
+  font-family: "Comic Sans MS", Arial Black, Arial, Verdana, serif; /* Un titre en Comic Sans MS  c'est mieux :o;) */
+  text-align: center;
+  background-color:#FFAE5E;
+  border-radius: 10px;
+}
+
+.icone p
+{
+  text-align: center;
+}
+
+
+.icone a
+{
+  font-size: 20px;
+/* Liens par défaut (non survolés) */
+  text-decoration: none;
+  color: white;
+  font-style: italic;
+  background-color: #A45200;
+  border-radius: 10px;
+}
+a:hover /* Apparence au survol des liens */
+{
+  background-color: #FFAE5E ;
+} 
+ 
+
