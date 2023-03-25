@@ -53,7 +53,7 @@ a.bouton1:hover {
 
 h1 {
 
-    font-family: cursive, Gotham, Tahoma, sans-serif;
+    font-family:Tahoma, sans-serif;
 
     font-size: 60px;
 
@@ -119,7 +119,7 @@ legend {
 
     border-radius: 30px;
 
-    font-family: cursive, Gotham, Tahoma, sans-serif;
+    font-family:Tahoma, sans-serif;
 
 }
 
@@ -166,7 +166,7 @@ a.carte {
 
 a.carte:hover {
 
-    background: #00ff0d;
+    background: #00ff37;
 
 }
 

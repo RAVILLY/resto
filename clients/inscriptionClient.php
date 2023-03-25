@@ -108,9 +108,3 @@
 
 </html>      
 
-<!--$sel = $pdo->prepare("select id from clients where email=? limit 1");
-      $sel->execute(array($email));
-      $tab = $sel->fetchAll();
-      if (count($tab) > 0)
-         $erreur = "L'email  existe déjà!";
-      else {-->

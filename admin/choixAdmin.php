@@ -5,11 +5,11 @@ if ($_SESSION["autoriser"] != "oui") {
     exit();
 }
 if (date("H") < 18)
-    $bienvenue = "Bonjour et bienvenue" .
+    $bienvenue = "Bonjour et bienvenue " .
         $_SESSION["echelonPrenom"] .
         " dans votre espace personnel";
 else
-    $bienvenue = "Bonsoir et bienvenue " .
+    $bienvenue = "Bonsoir et bienvenue  " .
         $_SESSION["echelonPrenom"] .
         " dans votre espace personnel";
 ?>
@@ -29,6 +29,8 @@ else
 </head>
 
 <body onLoad="document.fo.login.focus()">
+
+    <h2><?php echo $bienvenue ?></h2>
 
     <nav id="breadcrumb" aria-label="breadcrumb">
 

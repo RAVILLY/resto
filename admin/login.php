@@ -20,7 +20,7 @@ function login($login, $password)
 
    if (false === password_verify($password, $account['mot_de_passe'])) {
       return 'Mot de passe non valide.';
-   } 
+   }
 
    $_SESSION['echelonPrenom'] = ucfirst(strtolower($account['echelon'])) . ' ' . strtoupper($account['prenom']);
    $_SESSION['autoriser'] = "oui";
@@ -28,7 +28,6 @@ function login($login, $password)
    header('location: choixAdmin.php');
    exit;
 }
-
 
 ?>
 
