@@ -5,7 +5,7 @@ if ($_SESSION["autoriser"] != "oui") {
    exit();
 }
 if (date("H") < 18)
-   $bienvenue = "Bonjour et bienvenue Madame, Monsieur " .
+   $bienvenue = "Bonjour et bienvenue Madame, monsieur" . 
       $_SESSION["prenomNom"] .
       " dans votre espace personnel";
 else
@@ -38,6 +38,7 @@ if (isset($valider)) {
    }
 }
 ?>
+
 <!DOCTYPE html>
 
 <html>
@@ -46,51 +47,9 @@ if (isset($valider)) {
 
    <meta charset="utf-8" />
 
-   <style>
-      * {
-         font-family: arial;
-      }
+   <title>reservation</title>
 
-      body {
-
-         margin: 20px;
-      }
-
-      a {
-
-         color: #EE6600;
-
-         text-decoration: none;
-
-      }
-
-      a:hover {
-
-         text-decoration: underline;
-      }
-
-      input {
-
-         border: solid 1px #2222AA;
-
-         margin-bottom: 10px;
-
-         padding: 16px;
-
-         outline: none;
-
-         border-radius: 6px;
-
-      }
-
-      .erreur {
-
-         color: #CC0000;
-
-         margin-bottom: 10px;
-
-      }
-   </style>
+   <link rel="stylesheet" href="ClientCss.css">
 
 </head>
 
@@ -106,7 +65,7 @@ if (isset($valider)) {
 
    <form name="fo" method="post" action="">
 
-      <input type="text" name="nom" placeholder="Nom"/><br />
+      <input type="text" name="nom" placeholder="Nom" /><br />
 
       <input type="text" name="prenom" placeholder="Prénom" /><br />
 
@@ -116,8 +75,46 @@ if (isset($valider)) {
 
       <input id="date" type="date" name="dates"><br>
 
-      <input type="text" name="heures" placeholder="Heures 00:00" /><br />
+      <select name="heures" id="heures" size="4">
 
+         <optgroup label="MIDI">
+
+            <option value="12:00">12:00</option>
+
+            <option value="12:15">12:15</option>
+
+            <option value="12:30">12:30</option>
+
+            <option value="12:45">12:45</option>
+
+            <option value="13:00">13:00</option>
+
+            <option value="13:15">13:15</option>
+
+            <option value="13:30">13:30</option>
+
+         <optgroup label="SOIR">
+
+            <option value="19:00">19:00</option>
+
+            <option value="19:15">19:15</option>
+
+            <option value="19:30">19:30</option>
+
+            <option value="19:45">19:45</option>
+
+            <option value="20:00">20:00</option>
+
+            <option value="20:15">20:15</option>
+
+            <option value="20:30">20:30</option>
+
+            <option value="20:45">20:45</option>
+
+            <option value="21:00">21:00</option>
+
+      </select>
+      <br /><br><br /><br>
 
       <input type="submit" name="valider" value="Enregistrer" />
 
