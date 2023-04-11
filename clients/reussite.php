@@ -1,18 +1,19 @@
 <?php
    session_start();
    if($_SESSION["autoriser"]!="oui"){
-      header("location:login.php");
+      header("location:reservation.php");
       exit();
    }
    if(date("H")<18)
-      $bienvenue="Bonjour Madame, Monsieur. ".
-      $_SESSION["nomPrenom"].
+      $bienvenue="Bonjour Madame, Monsieur. " .
+      $_SESSION["prenomNom"].
       " votre demande a bien été prise en compte. A bientôt .<br> l'équipe du Quai Antique";
    else
       $bienvenue="Bonsoir Madame, Monsieur. ".
-      $_SESSION["nomPrenom"].
+      $_SESSION["prenomNom"].
       " votre demande a bien été prise en compte. A bientôt .<br> l'équipe du Quai Antique";
 ?>
+
 <!DOCTYPE html>
 <html>
    <head>
