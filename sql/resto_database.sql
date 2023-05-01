@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 09 mars 2023 à 18:02
+-- Généré le : lun. 01 mai 2023 à 15:40
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.2.0
 
@@ -62,8 +62,7 @@ CREATE TABLE `clients` (
 --
 
 INSERT INTO `clients` (`id`, `nom`, `prenom`, `mot_de_passe`, `email`, `telephone`) VALUES
-(19, 'ravilly', 'joel', '123', 'moipanpan@hotmail.fr', '0621834863'),
-(20, 'joel', 'joel', '123', 'jojo@caca.fr', '11 11 11 11 11');
+(42, 'RAVILLY', 'joel', '$2y$10$SKNZTpgaAuWYnU4zG2RxQO5liWD1l/msZBKsImUrpemrBkRbcmheG', 'moipanpan@hotmail.fr', '0101010101');
 
 -- --------------------------------------------------------
 
@@ -75,7 +74,7 @@ CREATE TABLE `reservation` (
   `id` int(11) NOT NULL,
   `nom` varchar(30) NOT NULL,
   `prenom` varchar(30) NOT NULL,
-  `telephone` tinytext NOT NULL,
+  `email` varchar(100) NOT NULL,
   `nombres` decimal(50,0) NOT NULL,
   `dates` tinytext DEFAULT NULL,
   `heures` tinytext NOT NULL
@@ -85,9 +84,8 @@ CREATE TABLE `reservation` (
 -- Déchargement des données de la table `reservation`
 --
 
-INSERT INTO `reservation` (`id`, `nom`, `prenom`, `telephone`, `nombres`, `dates`, `heures`) VALUES
-(19, 'popo', 'cucu', '00/00/00/00/00', '2', '1965-08-28', '22:30'),
-(20, 'ravilly', 'joel', '00/00/00/00/01', '10', '2023-02-26', '20:30');
+INSERT INTO `reservation` (`id`, `nom`, `prenom`, `email`, `nombres`, `dates`, `heures`) VALUES
+(34, 'RAVILLY', 'joel', 'moipanpan@hotmail.fr', '1', '2023-05-03', '12:15');
 
 --
 -- Index pour les tables déchargées
@@ -125,13 +123,13 @@ ALTER TABLE `admistration`
 -- AUTO_INCREMENT pour la table `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT pour la table `reservation`
 --
 ALTER TABLE `reservation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
