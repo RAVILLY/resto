@@ -5,7 +5,7 @@ if ($_SESSION["autoriser"] != "oui") {
    exit();
 }
 if (date("H") < 18)
-   $bienvenue = "Bonjour et bienvenue Madame, monsieur" . 
+   $bienvenue = "Bonjour et bienvenue Madame, monsieur" .
       $_SESSION["prenomNom"] .
       " dans votre espace personnel";
 else
@@ -15,29 +15,18 @@ else
 ?>
 
 <?php
-@$nom = $_POST["nom"];
-@$prenom = $_POST["prenom"];
-@$telephone = $_POST["telephone"];
-@$nombres = $_POST["nombres"];
-@$dates = $_POST["dates"];
-@$heures = $_POST["heures"];
-@$valider = $_POST["valider"];
-$erreur = "";
-if (isset($valider)) {
-   if (empty($nom)) $erreur = "Nom laissé vide!";
-   elseif (empty($prenom)) $erreur = "Prénom laissé vide!";
-   elseif (empty($telephone)) $erreur = "Téléphone laissé vide!";
-   elseif (empty($nombres)) $erreur = "places laissé vide!";
-   elseif (empty($dates)) $erreur = "Date laissé vide!";
-   elseif (empty($heures)) $erreur = "Heures laissé vide!";
-   else {
-      include("connexion.php");
-      $ins = $pdo->prepare('insert into reservation(nom,prenom,telephone,nombres,dates,heures) values(?,?,?,?,?,?)');
-      if ($ins->execute(array($nom, $prenom, $telephone, $nombres, $dates, $heures)))
-         header("location:reussite.php");
+$genre = "";
+$genre1 = "";
+$genre2 = "";
+if (isset($_POST['envoi'])) { // si formulaire soumis
+   if (isset($_POST['genre'])) {
+      $recup = $_POST['genre'];
+      $genre1 = $recup == "h" ? "checked" : "";
+      $genre2 = $recup == "f" ? "checked" : "";
    }
 }
 ?>
+
 
 <!DOCTYPE html>
 
@@ -47,76 +36,194 @@ if (isset($valider)) {
 
    <meta charset="utf-8" />
 
-   <title>reservation</title>
+   <title>Formulaire de réservations</title>
 
    <link rel="stylesheet" href="ClientCss.css">
 
 </head>
 
-<body onLoad="document.fo.login.focus()">
+<body>
 
-   <h2><?php echo $bienvenue ?></h2>
+   <h1>RESERVATION</h1>
 
-   [ <a href="deconnexion.php">Se déconnecter</a> ]
 
-   <h1>Réservations</h1>
 
-   <div class="erreur"><?php echo $erreur ?></div>
+   <form id="email-form" name="email-form" method="post" action="reservationPhp.php">
 
-   <form name="fo" method="post" action="">
+      <h2><?php echo $bienvenue ?></h2>
 
-      <input type="text" name="nom" placeholder="Nom" /><br />
+      <table width="100%" border="0" align="center" cellpadding="4" cellspacing="1">
 
-      <input type="text" name="prenom" placeholder="Prénom" /><br />
+         <tr>
 
-      <input type="text" name="telephone" placeholder="N° téléphone" /><br />
+            <td>
 
-      <input type="int" name="nombres" placeholder="Places" /><br />
+               <div class="label">Genre :</div>
 
-      <input id="date" type="date" name="dates"><br>
+               <div class="field">
 
-      <select name="heures" id="heures" size="4">
+                  <input type="radio" name="genre" value="Monsieur" />H <br>
+                  <input type="radio" name="genre" value="Madame" />F<br><br>
 
-         <optgroup label="MIDI">
 
-            <option value="12:00">12:00</option>
+               </div>
 
-            <option value="12:15">12:15</option>
+            </td>
 
-            <option value="12:30">12:30</option>
+         </tr>
 
-            <option value="12:45">12:45</option>
+         <tr>
 
-            <option value="13:00">13:00</option>
+            <td>
 
-            <option value="13:15">13:15</option>
+               <div class="label">Nom:</div>
 
-            <option value="13:30">13:30</option>
+               <div class="field">
 
-         <optgroup label="SOIR">
+                  <input type="text" name="nom" placeholder="Nom" required /><br><br>
 
-            <option value="19:00">19:00</option>
+               </div>
 
-            <option value="19:15">19:15</option>
+            </td>
 
-            <option value="19:30">19:30</option>
+         </tr>
 
-            <option value="19:45">19:45</option>
+         <tr>
 
-            <option value="20:00">20:00</option>
+            <td>
 
-            <option value="20:15">20:15</option>
+               <div class="label">Prénom:</div>
 
-            <option value="20:30">20:30</option>
+               <div class="field">
 
-            <option value="20:45">20:45</option>
+                  <input type="text" name="prenom" placeholder="Prénom" required><br><br>
 
-            <option value="21:00">21:00</option>
+               </div>
 
-      </select>
-      <br /><br><br /><br>
+            </td>
 
-      <input type="submit" name="valider" value="Enregistrer" />
+         </tr>
+
+         <tr>
+
+            <td>
+
+               <div class="label">E-mail:</div>
+
+               <div class="field">
+
+                  <input name="email" type="text" id="email" required /><br><br>
+
+               </div>
+
+            </td>
+
+         </tr>
+
+         <tr>
+
+            <td>
+
+               <div class="label">Dates:</div>
+
+               <div class="field">
+
+                  <input id="date" type="date" name="dates" required><br><br>
+
+               </div>
+
+            </td>
+
+         </tr>
+
+         <tr>
+
+            <td>
+
+               <div class="label">Nombres de places (10 max, au-delà nous contacter, merci.) :</div>
+
+               <div class="field">
+
+                  <input type="number" id="tentacles" name="nombres" placeholder="Places" required /><br><br>
+
+               </div>
+
+            </td>
+
+         </tr>
+
+         <tr>
+
+         <tr>
+
+            <td>
+
+               <div class="label">Heures:</div>
+
+               <div class="field">
+                  <select name="heures" id="heures" size="4">
+
+                     <optgroup label="MIDI">
+
+                        <option value="12:00">12:00</option>
+
+                        <option value="12:15">12:15</option>
+
+                        <option value="12:30">12:30</option>
+
+                        <option value="12:45">12:45</option>
+
+                        <option value="13:00">13:00</option>
+
+                        <option value="13:15">13:15</option>
+
+                        <option value="13:30">13:30</option>
+
+                     <optgroup label="SOIR">
+
+                        <option value="19:00">19:00</option>
+
+                        <option value="19:15">19:15</option>
+
+                        <option value="19:30">19:30</option>
+
+                        <option value="19:45">19:45</option>
+
+                        <option value="20:00">20:00</option>
+
+                        <option value="20:15">20:15</option>
+
+                        <option value="20:30">20:30</option>
+
+                        <option value="20:45">20:45</option>
+
+                        <option value="21:00">21:00</option>
+
+                  </select>
+                  <br /><br>
+
+
+               </div>
+
+            </td>
+
+         </tr>
+
+         <tr>
+
+            <td>
+
+               <div class="field">
+
+                  <input type="submit" name="envoi" /><br>
+
+               </div>
+
+            </td>
+
+         </tr>
+
+      </table>
 
    </form>
 
