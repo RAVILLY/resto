@@ -3,7 +3,7 @@ session_start();
 
 if (isset($_POST['valider'])) {
    $erreur = login($_POST['echelon'], $_POST['passe']);
-   echo $erreur;
+   echo  $erreur;
 }
 
 function login($login, $password)
@@ -39,81 +39,10 @@ function login($login, $password)
 
    <meta charset="utf-8" />
 
-   <style>
-      .breadcrumb {
+   <title>Authentification</title>
 
-         padding: 0 .5rem;
+   <link rel="stylesheet" href="admin.css">
 
-      }
-
-      .breadcrumb ul {
-
-         display: flex;
-
-         flex-wrap: wrap;
-
-         list-style: none;
-
-         margin: 0;
-
-         padding: 30px;
-
-      }
-
-      .breadcrumb li:not(:last-child)::after {
-
-         display: inline-block;
-
-         margin: 0 .25rem;
-
-         content: ">>";
-
-      }
-
-      * {
-
-         font-family: arial;
-
-      }
-
-      body {
-
-         margin: 20px;
-
-      }
-
-      input {
-
-         border: solid 1px #2222AA;
-
-         margin-bottom: 10px;
-
-         padding: 16px;
-
-         outline: none;
-
-         border-radius: 6px;
-
-      }
-
-      a {
-
-         font-size: 12pt;
-
-         color: #EE6600;
-
-         text-decoration: none;
-
-         font-weight: normal;
-
-      }
-
-      a:hover {
-
-         text-decoration: underline;
-
-      }
-   </style>
 
 </head>
 
