@@ -1,22 +1,10 @@
-body {
-
-    background: #c0bfbf;
-  
-    margin: 0;
-  
-    padding: 0;
-  
-    width: 100%;
-  
-}
-
-#breadcrumb {
+.breadcrumb {
 
     padding: 0 .5rem;
 
 }
 
-#breadcrumb ul {
+.breadcrumb ul {
 
     display: flex;
 
@@ -30,7 +18,7 @@ body {
 
 }
 
-#breadcrumb li:not(:last-child)::after {
+.breadcrumb li:not(:last-child)::after {
 
     display: inline-block;
 
@@ -38,6 +26,16 @@ body {
 
     content: ">>";
 
+}
+
+* {
+
+    font-family: arial;
+
+}
+
+body {
+    background-color: #f1f1f1;
 }
 
 .butt {
@@ -75,6 +73,20 @@ fieldset {
     border-radius: 20px;
 
     margin-bottom: 2rem;
+
+}
+
+h1 {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin: 0 auto;
+
+    height: 10vh;
 
 }
 
@@ -143,5 +155,68 @@ legend {
     -o-transition: all 0.2s;
 
     transition: all 0.2s;
+
+}
+
+input {
+
+    border: solid 1px #2222AA;
+
+    margin-bottom: 10px;
+
+    padding: 16px;
+
+    outline: none;
+
+    border-radius: 6px;
+
+}
+
+.erreur {
+
+    color: #CC0000;
+
+    margin-bottom: 10px;
+
+}
+
+a {
+
+    font-size: 12pt;
+
+    color: #EE6600;
+
+    text-decoration: none;
+
+    font-weight: normal;
+
+}
+
+a:hover {
+
+    text-decoration: underline;
+
+}
+
+
+form {
+
+    margin: 0 10px;
+
+    justify-content: center;
+
+    align-items: center;
+
+    display: grid;
+
+    height: 50vh;
+
+}
+
+.texte {
+
+    color: #CC0000;
+
+    text-align: center;
 
 }
